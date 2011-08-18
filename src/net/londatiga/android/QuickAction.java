@@ -1,20 +1,17 @@
 package net.londatiga.android;
 
 import android.content.Context;
-
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.ScrollView;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 /**
  * Popup window, shows action list as icon and text like the one in Gallery3D app. 
@@ -166,11 +163,13 @@ public class QuickAction extends PopupWindows {
 		mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		mRootView.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	
-		int rootHeight 		= mRootView.getMeasuredHeight();
-		int rootWidth		= mRootView.getMeasuredWidth();
-		
 		int screenWidth 	= mWindowManager.getDefaultDisplay().getWidth();
 		int screenHeight	= mWindowManager.getDefaultDisplay().getHeight();
+		
+		//ensure the root is considered <= screenWidth && screenHeight
+		int rootHeight 		= (mRootView.getMeasuredHeight() > screenHeight) ? screenHeight : mRootView.getMeasuredHeight();
+		int rootWidth		= (mRootView.getMeasuredWidth() > screenWidth) ? screenWidth : mRootView.getMeasuredWidth();
+		
 		
 		//automatically get X coord of popup (top left)
 		if ((anchorRect.left + rootWidth) > screenWidth) {
