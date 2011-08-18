@@ -128,11 +128,24 @@ public class QuickAction extends PopupWindows {
 		
 		container.setFocusable(true);
 		container.setClickable(true);
-			 
-		mTrack.addView(container, mChildPos);
 		
+		addView(container);
+	}
+	
+	/**
+	 * Add any view container type to the popup
+	 * You are responsible for ensuring it is clickable and/or 
+	 * dismisses the popup if desired
+	 * 
+	 * @param container to be added
+	 */
+	public void addView(View container){
+		
+		mTrack.addView(container, mChildPos);
 		mChildPos++;
 	}
+	
+	
 	
 	/**
 	 * Show popup window. Popup is automatically positioned, on top or bottom of anchor view.
