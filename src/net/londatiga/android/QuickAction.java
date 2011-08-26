@@ -268,7 +268,7 @@ public class QuickAction extends PopupWindows {
         
         ViewGroup.MarginLayoutParams param = (ViewGroup.MarginLayoutParams)showArrow.getLayoutParams();
        
-        param.leftMargin = requestedX - arrowWidth / 2;
+        param.leftMargin = requestedX - arrowWidth / 4;
         
         hideArrow.setVisibility(View.INVISIBLE);
     }
