@@ -91,8 +91,9 @@ public class QuickAction extends PopupWindows {
 	 * Add action item
 	 * 
 	 * @param action  {@link ActionItem}
+	 * @return the root view for the ActionItem
 	 */
-	public void addActionItem(ActionItem action) {
+	public View addActionItem(ActionItem action) {
 		
 		String title 	= action.getTitle();
 		Drawable icon 	= action.getIcon();
@@ -127,6 +128,8 @@ public class QuickAction extends PopupWindows {
 		container.setClickable(true);
 		
 		addView(container);
+		
+		return container;
 	}
 	
 	/**
